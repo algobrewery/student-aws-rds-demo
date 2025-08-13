@@ -23,7 +23,7 @@ The backend is deployed on **AWS Lambda** using **Spring Cloud Function** and is
 ---
 
 ## Architecture Overview
-![AWS Architecture Diagram](images/architecture.png)
+![AWS Architecture Diagram](StudentCrudAws.drawio.png)
 
 
 
