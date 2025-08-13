@@ -1,7 +1,7 @@
 # StudentCrudAwsRds
 
 ## Overview
-**StudentCrudAwsRds** is a Java Spring Boot project that provides CRUD (Create, Read, Update, Delete) operations for managing student records. 
+**StudentCrudAwsRds** is a Java Spring Boot backend project that provides CRUD (Create, Read, Update, Delete) operations for managing student records. 
 
 The backend is deployed on **AWS Lambda** using **Spring Cloud Function** and is connected to an **AWS RDS PostgreSQL** database. The API is exposed via **AWS API Gateway**, which resides in a **VPC** with properly configured subnets for secure networking. **IAM roles** are used to control access to AWS resources. The frontend is hosted on **AWS S3** as a static website.
 
