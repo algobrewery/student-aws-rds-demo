@@ -1,5 +1,4 @@
 package org.example.controller;
-//package com.example.studentcrudaws.controller;
 
 //package com.example.studentcrudaws.service;
 import org.example.entity.Student;
