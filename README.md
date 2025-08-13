@@ -5,6 +5,8 @@
 
 The backend is deployed on **AWS Lambda** using **Spring Cloud Function** and is connected to an **AWS RDS PostgreSQL** database. The API is exposed via **AWS API Gateway**, which resides in a **VPC** with properly configured subnets for secure networking. **IAM roles** are used to control access to AWS resources. The frontend is hosted on **AWS S3** as a static website.
 
+[This is the frontend repo](https://github.com/algobrewery/student-aws-rds-demo-frontend/)
+
 **Working frontend link:**  
 [Student CRUD Demo](http://student-crud-demo-frontend.s3-website-ap-southeast-2.amazonaws.com/)
 
