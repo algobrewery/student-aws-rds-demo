@@ -65,5 +65,51 @@ Open the hosted S3 link:
 
 
 
-Add caching layer for frequent database queries
+#github CI/CD
+//this is a demo pipeline and can be added to the repo root as .github/workflows/deploy-backend.yml 
+
+name: Deploy Backend to AWS Lambda
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Java 21
+      - name: Set up JDK 21
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      # Step 3: Build with Maven
+      - name: Build JAR
+        run: mvn clean package -DskipTests
+
+      # Step 4: Zip the JAR for Lambda
+      - name: Create Lambda ZIP
+        run: |
+          mkdir lambda_package
+          cp target/*.jar lambda_package/
+          cd lambda_package
+          zip -r ../lambda.zip .
+
+      # Step 5: Deploy to AWS Lambda
+      - name: Deploy to Lambda
+        uses: aws-actions/aws-cli@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-southeast-2
+          args: lambda update-function-code --function-name studentCrud --zip-file fileb://lambda.zip
+
 
